@@ -41,7 +41,7 @@ exports.register = async(req,res,next)=>{
     })
 
 }
-let x  ;
+var x  ;
 exports.generateotp = async(req,res,next)=>{
    
     let email = req.user.email
