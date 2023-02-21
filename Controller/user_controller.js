@@ -1,5 +1,6 @@
 const User = require('../Model/user_model.js');
 const sendEmail = require("../sendEmail/send_email");
+import Cookies from 'js-cookie'
 
 exports.register = async(req,res,next)=>{
     if(req.body.name=="" || req.body.email=="" || req.body.phoneNumber=="" || req.body.password==""){
@@ -29,16 +30,22 @@ exports.register = async(req,res,next)=>{
         expires:new Date(
             Date.now() + process.env.COOKIE_EXPIRE*24*60*60*1000
         ),
-        // httpOnly: true,
+        // httpOnly:false
+        
     }
 
+    Cookies.set('token', token,options)
 
-    res.status(200).cookie('token',token,options).json({
+
+    res.status(200).json({
         success:true,
         user,
         token,
         message:"Registered successfully!"
     })
+
+    
+    
 
 }
 var x  ;
