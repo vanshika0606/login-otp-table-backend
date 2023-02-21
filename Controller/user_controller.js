@@ -1,6 +1,6 @@
 const User = require('../Model/user_model.js');
 const sendEmail = require("../sendEmail/send_email");
-import Cookies from 'js-cookie'
+var Cookies= require('js-cookie')
 
 exports.register = async(req,res,next)=>{
     if(req.body.name=="" || req.body.email=="" || req.body.phoneNumber=="" || req.body.password==""){
