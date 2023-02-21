@@ -178,10 +178,10 @@ exports.loginUser = async(req,res,next)=>{
 
 exports.logout = async(req,res,next)=>{
 
-    Cookies.set("token",null,{
-        expires:new Date(Date.now()),
-        // httpOnly: true,
-    })
+    // Cookies.set("token",null,{
+    //     expires:new Date(Date.now()),
+    //     // httpOnly: true,
+    // })
 
 
     res.status(200).json({
